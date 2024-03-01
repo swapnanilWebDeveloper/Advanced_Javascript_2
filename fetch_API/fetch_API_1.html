@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+           fetch('https://data.covid19india.org/state_district_wise.json')
+           .then( (apidata) => {
+             return apidata.json();
+           })
+           .then( (actualdata) => {
+              console.log(actualdata);
+              console.log("let's get the detailed data about gujrat...");
+              console.log("Let's study the statistics about Ahmedabad : ");
+              
+              Ahmedabad_data = actualdata.Gujarat.districtData.Ahmedabad;
+              console.log(Ahmedabad_data);
+
+              console.log("active cases = "+Ahmedabad_data.active);
+              console.log("confirmed cases = "+Ahmedabad_data.confirmed);
+              console.log("deceased cases = "+Ahmedabad_data.deceased);
+              console.log("migrated other = "+Ahmedabad_data.migratedother);
+              console.log("recovered cases = "+Ahmedabad_data.recovered);
+
+              let inner = Ahmedabad_data.delta;
+
+              console.log("confirmed = "+inner.confirmed);
+              console.log("deceased = "+inner.deceased);
+              console.log("recovered = "+inner.recovered);
+           })
+           .catch( (error) => {
+               console.log("Something went wrong!!!...");
+           })
+      </script>
+</body>
+</html>

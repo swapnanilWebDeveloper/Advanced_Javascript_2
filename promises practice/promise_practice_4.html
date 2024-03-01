@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+        let products ;
+        fetch('https://dummyjson.com/products')
+                       .then((res) => {
+                         return res.json();
+                       })
+                       .then((data) => {
+                          products =  data;
+                       });
+        function prom(complete){
+            return new Promise(function(resolve,reject){
+                console.log("Fetching Data, Please wait...");
+                setTimeout( () => {
+                    if(complete){
+                        resolve(products);
+                     }else{
+                        reject("progam is rejected due to major issue");
+                     }
+                },2000);
+            })
+        }
+
+        prom(true).then((result) => {
+            console.log(result);
+            let product_arr = result.products;
+            let skin_obj = new Array();
+            let j = 0;
+            for(var i = 0; i < product_arr.length; i++ ){
+                if(product_arr[i].category === "skincare"){
+                     skin_obj[j] = {brand: product_arr[i].brand, price: product_arr[i].price, title: product_arr[i].title};
+                     j++; 
+                }
+            }
+            console.log(skin_obj);
+            return skin_obj;
+        }).then((data_skin) => {
+           let max_obj = data_skin[0];
+           for(var i = 1; i < data_skin.length; i++){
+                if(data_skin[i].price > max_obj.price){
+                     max_obj = data_skin[i];
+                 }  
+           }
+           console.log(max_obj);
+           console.log(max_obj.title+" has the highest price of = "+max_obj.price);
+
+           let min_obj = data_skin[0];
+           for(var i = 1; i < data_skin.length; i++){
+                if(data_skin[i].price < min_obj.price){
+                     min_obj = data_skin[i];
+                 }  
+           }
+           console.log(min_obj);
+           console.log(min_obj.title+" has the lowest price of = "+min_obj.price);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
+     </script>
+</body>
+</html>

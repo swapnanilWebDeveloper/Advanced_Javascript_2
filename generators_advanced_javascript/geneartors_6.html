@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+            function *genearteit(){
+                let nextNum = 300;
+                while(true){
+                    yield(nextNum++);
+                }
+            }
+
+            let g = genearteit();
+
+            for(let val of g){
+                if(val > 305){
+                    break;
+                }
+                console.log(val);
+            }
+      </script>
+</body>
+</html>

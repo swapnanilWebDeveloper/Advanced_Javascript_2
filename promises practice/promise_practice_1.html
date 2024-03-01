@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+        
+        const student = {
+            name : "Mayuk Mukherjee",
+            email : "Mayuk@gamil.com",
+            address : "Barendranagar",
+            age : 19,
+            physics : 99,
+            chemistry : 88,
+            mathematics : 97
+        }
+
+        function prom(complete){
+            return new Promise(function(resolve,reject){
+                console.log("Fetching Data, Please wait...");
+                setTimeout( () => {
+                    if(complete){
+                        resolve(student);
+                     }else{
+                        reject("Program has been rejected due to some error.");
+                     }
+                },2000);
+            })
+        }
+
+        let onfulfilment = (result) => {
+            console.log(result);
+            console.log("marks in physics = "+result.physics+", chemistry = "+result.chemistry+", mathematics = "+result.mathematics);
+            let total;
+            total = result.physics + result.chemistry + result.mathematics;
+            console.log("Total marks in science = "+total);
+        }
+        let onRejection = (error) => {
+            console.log(error);
+        }
+
+        prom(true).then(onfulfilment).catch(onRejection);
+        prom(false).then(onfulfilment).catch(onRejection);
+     </script>
+</body>
+</html>

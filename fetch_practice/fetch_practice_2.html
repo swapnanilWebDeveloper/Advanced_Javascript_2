@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            fetch("/myJson/json_data/employee_data.json")
+           .then((response) => {
+               return response.json();
+            })
+            .then((emp_data) => {
+               console.log(emp_data);
+               console.log("length is = "+emp_data.length);
+               let total;
+               let employee_info = new Array();
+               for(var i = 0; i < emp_data.length; i++){
+                   console.log("name is = "+emp_data[i].name+",compnay = "+emp_data[i].company+", position = "+emp_data[i].position);
+                   console.log("basic = "+emp_data[i].basic+", HRA = "+emp_data[i].HRA+", TA = "+emp_data[i].TA
+                                +", PF = "+emp_data[i].PF+" IT = "+emp_data[i].IT);
+                    total = emp_data[i].basic + emp_data[i].HRA + emp_data[i].TA - emp_data[i].PF - emp_data[i].IT;
+                    console.log("net salary of "+emp_data[i].name+" is = "+total)
+               }
+            })
+            .catch( (error) => {
+                console.log("Something went wrong !!! "+error);
+            })
+    </script>
+</body>
+</html>

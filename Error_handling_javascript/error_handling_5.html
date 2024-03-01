@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+          try{
+             blabla();
+          }catch(error){
+
+            if(error instanceof ReferenceError){
+                console.log("It is a reference error that has been generated...");
+            }
+            else if(error instanceof TypeError){
+                console.log("Type Error has been generated...");
+            }
+            else{
+                console.log("Unknown error...");
+            }
+          }
+     </script>
+</body>
+</html>

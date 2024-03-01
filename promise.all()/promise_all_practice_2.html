@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+        let products_data , i = 1, arr_data,p1,p2,p3,p4;
+        let a_data, b_data, c_data, d_data;
+            fetch('https://dummyjson.com/products/category/smartphones')
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+                products_data = data;
+            });
+
+            setTimeout(function(){
+                console.log(products_data.products[0]);
+                 a_data = products_data.products[0];
+                 b_data = products_data.products[1];
+                 c_data = products_data.products[2];
+                 d_data = products_data.products[3];
+            },2000)
+
+            let promiseCall = function(returnData,message,prod_obj){
+                return  function(resolve, reject){
+                    setTimeout(() =>{
+                      console.log("The "+message+" promise is resolved...");
+                      resolve(prod_obj);
+                      console.log(prod_obj);
+                  },returnData * 100);
+                }
+            };
+
+            setTimeout(function(){
+                p1 = new Promise(promiseCall(30,"first",a_data));
+                p2 = new Promise(promiseCall(40,"second",b_data));
+                p3 = new Promise(promiseCall(50,"third",c_data));
+                p4 = new Promise(promiseCall(60,"fourth",d_data));
+
+                Promise.all([p1,p2,p3,p4]).then((data_arr) => {
+                  console.log(data_arr.length);
+                  let arr_obj = new Array();
+                  for(var i = 0; i < data_arr.length; i++){
+                     arr_obj[i] = {title : data_arr[i].title, price : data_arr[i].price, stock: data_arr[i].stock, 
+                                       total : data_arr[i].stock * data_arr[i].price};
+                  }
+                  console.log(arr_obj);
+                  let stock_total = 0, price_total = 0, all_total = 0;
+                  for(var i = 0; i < arr_obj.length; i++){
+                    stock_total = stock_total + arr_obj[i].stock;
+                    price_total = price_total + arr_obj[i].price;
+                    all_total = all_total + arr_obj[i].total;
+                  }
+                  console.log("Total price of individual mobile phones = "+price_total);
+                  console.log("Total stocks of all mobiles combined = "+stock_total);
+                  console.log("Price of all the mobiles combinedly according to all stocks = "+all_total);
+                 
+            }).catch((error) => {
+                  console.log("Results : "+error);
+            })  
+            },3000);
+                
+      </script>
+</body>
+</html>

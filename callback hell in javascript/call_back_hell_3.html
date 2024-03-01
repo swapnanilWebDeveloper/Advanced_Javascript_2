@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+           const employee_data = () => {
+                  setTimeout( () => {
+                    let fav_sports = ["cricket", "football", "vollyball", "basketball", "base ball", "tennis"];
+                        console.log("API is getting the favourite sports of employee");
+                        console.log(fav_sports);
+                        setTimeout( (sport_fav) => {
+                             let employee = {
+                                name : "Mayuk Mukherjee",
+                                email : "Mayuk@gmail.com",
+                                address : "barendranagar",
+                                age : 25
+                             }
+                             console.log("name is = "+employee.name+", email = "+employee.email+", address = "+employee.address
+                                               +", age is = "+employee.age);
+                                setTimeout( (emp_info) => {
+                                     emp_info.company = "TCS";
+                                     emp_info.position = "researcher";
+                                     emp_info.exp = "4 years";
+                                     emp_info.basic = 75000;
+                                     emp_info.HRA = 7300;
+                                     emp_info.TA = 4800;
+                                     emp_info.PF = 3500;
+                                     emp_info.IT = 2400;
+                                     
+                                     console.log("company is = "+emp_info.company+", position = "+emp_info.position
+                                          +", experience = "+emp_info.exp);
+
+                                      setTimeout( (data_emp) => {
+                                           let net_sal;
+                                           
+                                           console.log("basic is = "+data_emp.basic+", HRA is = "+data_emp.HRA+", TA is = "+data_emp.TA
+                                                 +", PF is = "+data_emp.PF+", IT is = "+data_emp.IT);
+                                           net_sal = data_emp.basic + data_emp.HRA + data_emp.TA - data_emp.PF - data_emp.IT;
+                                           console.log("net salry is = "+net_sal);
+                                      },2000, emp_info)
+                                },2000,employee)
+
+                        },2000,fav_sports)
+                  })
+           }
+           employee_data();
+      </script>
+</body>
+</html>

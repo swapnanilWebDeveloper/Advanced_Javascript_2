@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+            class JuniorEngineer{
+                constructor(name,post,email,salary){
+                       this.JE_name = name;
+                       this.JE_post = post;
+                       this.JE_email = email;
+                       this.JE_salary = salary;
+                }
+                engineer_info(){
+                    console.log("Junior Engineer information : ");
+                    console.log("name is : "+this.JE_name+", post : "+this.JE_post+", email : "+this.JE_email+", salary : "+this.JE_salary);
+                }
+            }
+
+            class SeniorEngineer extends JuniorEngineer{
+                   engineer_info(){
+                    let HRA = 6500;
+                    let TA = 7500;
+                    let DA = 5500;
+                    let total_salary = this.JE_salary + HRA + TA + DA;
+                    console.log("senior Engineer information : ");
+                    console.log("name is : "+this.JE_name+", post : "+this.JE_post+", email : "+this.JE_email+", salary : "+total_salary);
+                   }
+            }
+
+            let eng1 = new JuniorEngineer("Swapnanil Roy","cpp developer","swapnanil@gmail.com",45000);
+            let eng2 = new SeniorEngineer("Mayuk Mukherjee","java developer","MAyuk@gmail.com",75000);
+
+            eng1.engineer_info();
+            eng2.engineer_info();
+     </script>
+</body>
+</html>

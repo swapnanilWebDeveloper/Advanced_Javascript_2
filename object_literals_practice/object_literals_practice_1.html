@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+            let name = "Mayuk Mukherjee";
+            let course= "Btech CSE";
+            let email = "Mayuk@gmail.com";
+            let address = "Barendranagar";
+            let physics = 99;
+            let chemistry = 88;
+            let mathematics = 97;
+            let arts = [77,64,82];
+            let calc_science = (phy, chem, math) => {
+                     let total = phy + chem + math;
+                     return total;
+            }
+            let calc_arts = (art_mark) => {
+                 let sum = 0;
+                 for(var i = 0; i < art_mark.length; i++){
+                      sum = sum + art_mark[0];
+                 }
+                 return sum;
+            }
+            
+            var student = {
+                name ,
+                course ,
+                email,
+                address,
+                physics,
+                chemistry,
+                mathematics,
+                arts,
+                calc_science,
+                details_science : function(){
+                     console.log("marks in physics = "+this.physics+" chemistry = "+this.chemistry+" mathematics = "+this.mathematics);
+                },
+                calc_arts,
+                details_arts : function(){
+                     for(var i = 0; i < this.arts.length; i++){
+                        console.log("arts subject : "+(i+1)+" marks is = "+arts[i]);
+                     }
+                }
+            }
+
+            console.log(student);
+
+            student.details_science();
+            console.log("Total marks in science = "+student.calc_science(physics,chemistry,mathematics));
+            student.details_arts();
+            console.log("Total marks in arts = "+student.calc_arts(arts));
+      </script>
+</body>
+</html>

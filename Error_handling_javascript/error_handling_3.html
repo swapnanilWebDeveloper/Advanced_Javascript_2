@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        setTimeout(function () {
+            try {
+                console.log('Start of Try');
+                blabla();
+                console.log('End of Try');
+            } catch (error) {
+                console.log("Error has occured..." + error);
+            }
+        }, 2000)
+    </script>
+</body>
+
+</html>

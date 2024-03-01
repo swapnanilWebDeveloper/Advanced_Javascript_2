@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         async function test(){
+            console.log("2 : Message");
+            const response = await fetch("/myJson/json_data/student_marks.json");
+            console.log("3 : Message");
+            const students = await response.json();
+            console.log("4 : Message");
+
+            return students;
+         }
+         console.log("1 : Message");
+         console.log(test());
+         console.log("5 : Message");
+    </script>
+</body>
+</html>

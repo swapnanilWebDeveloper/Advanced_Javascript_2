@@ -1,0 +1,12 @@
+[
+    {
+        "name" : "Mayuk Mukherjee",
+         "age" : 25,
+         "city" : "kolkata"
+    },
+    {
+        "name" : "Suryendu Sarkar",
+        "age" : 28,
+        "city" : "Burdwan"
+    }
+]

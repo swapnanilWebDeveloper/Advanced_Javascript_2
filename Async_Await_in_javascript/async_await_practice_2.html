@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         async function test(){
+            try{
+                const response = await fetch("https://dummyjson.com/products/category/smartphones");
+                const students = await response.json();
+                return students;
+            }catch(error){
+                console.log("Error has occured during execution : "+error);
+            }
+         }
+         test().then( (phone) => {
+             console.log(phone);
+             let phone_data = phone.products;
+             console.log(phone_data.length);
+             let phone_arr = new Array();
+             let total = 0;
+             for(var i = 0; i < phone_data.length; i++){
+                  phone_arr[i] = {title : phone_data[i].title, price : phone_data[i].price, brand : phone_data[i].brand};
+                  total = total + phone_data[i].price;
+             }
+             console.log(phone_arr);
+             console.log("Total price of all the phones is = "+total);
+
+             let max_phone = new Object();
+             max_phone = phone_arr[0];
+             for(var i = 0; i < phone_arr.length; i++){
+                   if(phone_arr[i].price > max_phone.price){
+                         max_phone = phone_arr[i];
+                   }  
+             }
+             console.log(max_phone);
+             console.log(max_phone.title+" is the most expensive phone with price = "+max_phone.price);
+         })
+         
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+           let is_amstrong = (num) => {
+                let sum = 0, dig, N;
+                N = num;
+                while(N > 0){
+                    dig = parseInt(N % 10);
+                    sum = (sum + dig * dig * dig);
+                    N = parseInt(N / 10);
+                }
+                if( sum == num){
+                    return 1;
+                }
+                else{
+                    return 0;
+                }
+           }
+
+           let number = 151;
+           let flag = is_amstrong(number);
+           if(flag == 1){
+             console.log(number+" is an amstrong number ");
+           }
+           else{
+            console.log(number+" is not an amstrong number");
+           }
+     </script>
+</body>
+</html>

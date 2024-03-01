@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+            function *genearteit(){
+              let yArray = [yield,yield,yield];
+
+              console.log(yArray);
+              for(var i = 0; i < yArray.length; i++){
+                  console.log("result no. "+(i+1)+" is = "+yArray[i]);
+              }
+              
+            }
+
+            let g = genearteit();
+            g.next();
+            g.next("PHP");
+            g.next("java");
+            g.next("Python");
+      </script>
+</body>
+</html>

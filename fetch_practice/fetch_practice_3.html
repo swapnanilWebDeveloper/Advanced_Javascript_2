@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            fetch("https://dummyjson.com/products")
+           .then((response) => {
+               return response.json();
+            })
+            .then((product_data) => {
+               console.log(product_data);
+               console.log("length is = "+product_data.products.length);
+               let data_product = new Array();
+               let j = 0;
+               for(var i = 0; i < product_data.products.length; i++){
+                     if(product_data.products[i].category == "fragrances"){
+                            data_product[j] = {brand:product_data.products[i].brand, title:product_data.products[i].title,
+                                                price: product_data.products[i].price, rating: product_data.products[i].rating};
+                            j++;
+                     }
+               }
+               return data_product;
+            })
+            .then((product_info) => {
+                console.log(product_info);
+                let total = 0;
+                let perfume = new Array();
+                for(var i = 0; i < product_info.length; i++){
+                    console.log("title : "+product_info[i].title+", price = $"+product_info[i].price);
+                    total = total + product_info[i].price;
+                    perfume[i] = {title : product_info[i].title, price : product_info[i].price};
+                }
+                console.log("Total price of all the perfumes is = $"+total);
+                console.log(perfume);
+                let max_obj = perfume[0];
+                for(var i = 1; i < perfume.length; i++){
+                      if(perfume[i].price > max_obj.price){
+                            max_obj = perfume[i];
+                      }
+                }
+                console.log(max_obj);
+                console.log("Most expensive perfume = "+max_obj.title+", price = $"+max_obj.price);
+            })
+            .catch( (error) => {
+                console.log("Something went wrong !!! "+error);
+            })
+    </script>
+</body>
+</html>

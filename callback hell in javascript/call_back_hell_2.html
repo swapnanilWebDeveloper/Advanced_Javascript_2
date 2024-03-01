@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+           const student_info = () => {
+                setTimeout( () => {
+                    let fav_movies = ["k3g", "khalnayak", "ghatak", "gadar", "kante"];
+                    console.log("API is getting student's favourite movies...");
+                    console.log(fav_movies);
+                    setTimeout( (...movie_fav) => {
+                         let personal_data = {
+                            fname : "Mayuk",
+                            lname : "Mukherjee",
+                            email : "Mayuk@gamil",
+                            address : "Barendranagar",
+                            age : 19
+                         }; 
+                        
+                         console.log("name is = "+(personal_data.fname+personal_data.lname));
+                         console.log("email is = "+personal_data.email);
+                         console.log("address is = "+personal_data.address+", age is = "+personal_data.age);
+                         console.log("favourite movies = "+movie_fav[0]+" & "+movie_fav[1]);
+
+                         setTimeout( (per_info) => {
+                              console.log(per_info);
+                              per_info.physics = 99;
+                              per_info.chemistry = 88;
+                              per_info.mathematics = 97;
+                              per_info.gender = "male";
+                            per_info.calc_science = () =>{
+                                    let total = per_info.physics + per_info.chemistry + per_info.mathematics;
+                                    console.log("total marks in science = "+total);
+                                    return total;
+                              }
+                              per_info.science_marks = () => {
+                                 console.log("marks in physics = "+per_info.physics+", chemistry = "+per_info.chemistry+
+                                              " , mathematics = "+per_info.mathematics);
+                              }
+
+                            let sum = per_info.calc_science();
+                            per_info.science_marks(); 
+                            
+                         },2000,personal_data)
+                    },2000,fav_movies[1],fav_movies[3]);
+                },2000)
+           }
+
+           student_info();
+    </script>
+</body>
+</html>

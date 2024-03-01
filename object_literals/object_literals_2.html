@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+           let n = "creater_name";
+           let f = "followers";
+           let p = "platform";
+
+           let obj = {
+              [n] : "Yahoo Baba",
+              course : "BTech",
+              [f] : "98k",
+              [p + "_online"] : "youTube",
+              details : function(){
+                   return `${this.creater_name} is doing ${this.course} & he has
+                     ${this.followers} followers on ${this.platform_online}`;
+              }
+           };
+
+           console.log(obj);
+           console.log(obj.creater_name);
+           console.log(obj.followers);
+           console.log(obj.platform_online);
+           console.log(obj.details());
+           console.log(obj['details']());
+
+     </script>
+</body>
+</html>

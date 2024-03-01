@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+            function *genearteit(){
+                yield "yield no. 1";
+    
+                yield "yeild no. 2";
+
+                yield "yield no. 3";
+            }
+
+            let g = genearteit();
+            console.log(g.next().value);
+            console.log(g.next().value);
+            console.log(g.next().value);
+            console.log(g.next());
+      </script>
+</body>
+</html>

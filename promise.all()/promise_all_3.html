@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+            let promiseCall = function(returnData,message){
+                return  function(resolve, reject){
+                    setTimeout(() =>{
+                      console.log("The "+message+" promise is resolved...");
+                      resolve(returnData);
+                  },returnData * 100);
+                }
+            };
+
+          let p1 = new Promise(promiseCall(10,"first"));
+          let p2 = new Promise(promiseCall(25,"second"));
+          let p3 = new Promise(promiseCall(35,"third"));
+
+            Promise.all([p1,p2,p3]).then((result) => {
+                  console.log("Results : "+result);
+                  console.log(result.length);
+                  let total = 0;
+                  for(var i = 0; i < result.length; i++){
+                     total = total + result[i];
+                  }
+                  console.log("Sumation of all resolved values is = "+total);
+            }).catch((error) => {
+                  console.log("Results : "+error);
+            })
+      </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*  let user = ["Yahoo Baba", 22, "Delhi", 25000, "developer"];
+
+          let [name,age,...args] = user;
+
+          console.log(name);
+          console.log(args);  */
+
+        let student = ["Mayuk", "Mukherjee", 25, 75000, "Cpp Developer", "saltlake", "TCS"];
+
+        let [fname, lname, age, ...rest] = student;
+
+        console.log(fname);
+        console.log(lname);
+        console.log(age);
+        console.log(rest);
+
+        let [salary, job, loc, company] = rest;
+        console.log(salary);
+        console.log(job);
+        console.log(loc);
+        console.log(company);
+    </script>
+</body>
+
+</html>

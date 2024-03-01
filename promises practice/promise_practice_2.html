@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+        
+        const student = [
+            { name : "Argha Tribedi", address : "fulia", physics : 77, chemistry : 71, mathematics : 79 },
+            { name : "Souvik Mondal", address : "Banarjee lane", physics : 68, chemistry : 92, mathematics : 84 },
+            { name : "Aninda Mukherjee", address : "Biswas para", physics : 87, chemistry : 74, mathematics : 88 },
+            { name : "Mayuk Mukherjee", address : "Barendranagar", physics : 99, chemistry : 88, mathematics : 97 },
+            { name : "Souvik Chatterjee", address : "Chatterjee lane", physics : 79, chemistry : 82, mathematics : 71 },
+            { name : "Subhasis Sadhukan", address : "Shyam nagar", physics : 79, chemistry : 64, mathematics : 74 },
+            { name : "Sudip Dasgupta", address : "Basirhat", physics : 90, chemistry : 83, mathematics : 82 },
+            { name : "Sanlap Gadai", address : "Chotobazar", physics : 81, chemistry : 68, mathematics : 68 },
+            { name : "Suryendu Sarkar", address : "Thana para", physics : 91, chemistry : 78, mathematics : 91 },
+            { name : "Swapnanil Roy", address : "datta pukur", physics : 64, chemistry : 90, mathematics : 87 },
+        ]
+
+        function prom(complete){
+            return new Promise(function(resolve,reject){
+                console.log("Fetching Data, Please wait...");
+                setTimeout( () => {
+                    if(complete){
+                        resolve(student);
+                     }else{
+                        reject("Program has been rejected due to some error.");
+                     }
+                },2000);
+            })
+        }
+
+        let onfulfilment = (result) => {
+            console.log(result);
+            let total;
+            let arr_obj = new Array();
+            for(var i = 0; i < result.length; i++){
+                total = result[i].physics + result[i].chemistry + result[i].mathematics
+                arr_obj[i] = {name : result[i].name, sc_total : total};
+            }
+            console.log(arr_obj);
+             let max_obj = new Object();
+             max_obj = arr_obj[0];
+             for(var i = 0; i < arr_obj.length; i++){
+                   if(arr_obj[i].sc_total > max_obj.sc_total){
+                           max_obj = arr_obj[i];
+                   }
+             }
+             console.log(max_obj);
+             console.log(max_obj.name+" , has got the highest marks in science = "+max_obj.sc_total);
+
+             let min_obj = new Object();
+             min_obj = arr_obj[0];
+             for(var i = 0; i < arr_obj.length; i++){
+                   if(arr_obj[i].sc_total < min_obj.sc_total){
+                           min_obj = arr_obj[i];
+                   }
+             }
+             console.log(min_obj);
+             console.log(min_obj.name+" , has got the lowest marks in science = "+min_obj.sc_total);
+        }
+        let onRejection = (error) => {
+            console.log(error);
+        }
+
+        prom(true).then(onfulfilment).catch(onRejection);
+      //  prom(false).then(onfulfilment).catch(onRejection);
+     </script>
+</body>
+</html>

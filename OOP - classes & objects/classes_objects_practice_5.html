@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+           class Rectangle{
+                constructor(len, btd){
+                    this.length = len;
+                    this.breadth = btd;
+                    let area;
+                    let perimeter;
+                   
+                }
+                calc_surface(){
+                    this.area = (this.length * this.breadth);
+                    console.log("The surface area is = "+this.area);
+                }
+                measure_rectangle(){
+                    console.log("length = "+this.length+", breadth = "+this.breadth);
+                }
+                calc_perimeter(){
+                    this.perimeter = 2 * (this.length + this.breadth);
+                    console.log("perimeter is = "+this.perimeter); 
+                }
+           }
+
+          let  r1 = new Rectangle(12,5);
+          r1.measure_rectangle();
+          r1.calc_surface();
+          r1.calc_perimeter();
+
+         
+          let  r2 = new Rectangle(9,4);
+          r2.measure_rectangle();
+          r2.calc_surface();
+          r2.calc_perimeter();
+      </script>
+</body>
+</html>

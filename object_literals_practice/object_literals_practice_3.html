@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+           let fname = "Mayuk";
+           let lname = "Mukherjee";
+           let course = "Btech.CSE";
+           let address = "Barendra Nagar";
+           let email = "Mayuk@gamil.com";
+           let physics = 94;
+           let chemistry = 84;
+           let mathematics = 97;
+           let calc_science = (phy_s,chem_s,math_s) => {
+               let total = phy_s + chem_s + math_s;
+                  return total;
+           }
+           let sc_det = (p, c, m) => {
+            console.log("physics = "+p+", chemistry = "+c+", mathematics = "+m);
+           }
+
+           function student(fname, lname , course, em, add, phy, chem, math,science_total,science_details){
+               let fullname = fname+" "+lname;
+               return {fullname, course, em, add, phy, chem, math,science_total,science_details};
+           }
+
+          // console.log(student(fname,lname,course,address,email,physics,chemistry,mathematics,calc_science));
+
+          // let obj = {};
+          let obj = student(fname,lname,course,email,address,physics,chemistry,mathematics,calc_science,sc_det);
+           console.log("name is : "+obj.fullname+",course : "+obj.course+", email_id is : "+obj.em+", address : "+obj.add);
+           console.log("Total marks is = "+obj.science_total(physics,chemistry,mathematics));
+           obj.science_details(physics,chemistry,mathematics);
+     </script>
+</body>
+</html>

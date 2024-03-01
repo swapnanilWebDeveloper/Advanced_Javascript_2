@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+           class Employee{
+                constructor(nm,em,ag,add,com,loc,jb,exp,bs,H,TA,PF,IT){
+                     this.name = nm;
+                     this.email = em;
+                     this.age = ag;
+                     this.address = add;
+                     this.company = com;
+                     this.locate = loc;
+                     this.job_post = jb;
+                     this.experience = exp;
+                     this.basic = bs;
+                     this.HRA = H;
+                     this.transport_allowance = TA;
+                     this.provident_fund  = PF;
+                     this.income_tax = IT;
+                }
+                employee_info(){
+                    console.log("name is = "+this.name+", email is = "+this.email+", age is = "+this.age+", address is = "+this.address);
+                    console.log("company is = "+this.company+",location = "+this.locate+", job post = "+this.job_post);
+                    console.log("experience is = "+this.experience+", basic = "+this.basic+", HRA = "+this.HRA);
+                    console.log("tansport allowance = "+this.transport_allowance+", P.F = "+this.provident_fund+", I.T = "+this.income_tax);
+                }
+                calc_salary(){
+                    let net_salary;
+                    net_salary = this.basic + this.HRA + this.transport_allowance - this.provident_fund - this.income_tax;
+                    console.log("net salary is = "+net_salary);
+                }
+                static invoke_static(candidate){
+                    console.log("I am inside static method : "+candidate+", are you in ??");
+                }
+           }
+
+           let emp1 = new Employee("Mayuk Mukherjee","Mayuk@gmail.com",25,"Barendranagar","TCS","saltlake","java programmer"
+                                    ,"5 years",75000,5500,3500,6500,7500);
+            
+           emp1.employee_info();
+           emp1.calc_salary();                         
+           Employee.invoke_static("Baba ramdev");
+      </script>
+</body>
+</html>

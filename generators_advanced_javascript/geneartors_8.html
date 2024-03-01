@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+            function *genearteit(){
+              let yArray = [yield, yield, yield];
+              console.log(`Result is = ${yArray}`);
+
+              console.log(`first value of ${yArray[0]}`);
+              console.log(`Second value of ${yArray[1]}`);
+              console.log(`third value of ${yArray[2]}`);
+            }
+
+            let g = genearteit();
+            g.next();
+            g.next(500);
+            g.next(600);
+            g.next(700);
+      </script>
+</body>
+</html>

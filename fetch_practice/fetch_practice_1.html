@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            fetch("/myJson/json_data/student_marks.json")
+           .then((response) => {
+               return response.json();
+            })
+            .then((stu_obj) => {
+              console.log(stu_obj);
+              console.log(stu_obj.length);
+              let total;
+              let student_data = new Array();
+              for(var i = 0; i < stu_obj.length; i++){
+                    console.log("name is = "+stu_obj[i].name+", address = "+stu_obj[i].address+", email = "+stu_obj[i].email);
+                    console.log("marks in physics = "+stu_obj[i].physics+", chemistry = "+stu_obj[i].chemistry
+                                 +", mathematics = "+stu_obj[i].mathematics);
+                    total = stu_obj[i].physics + stu_obj[i].chemistry + stu_obj[i].mathematics;
+                    console.log("Total marks is = "+total);
+                    student_data[i] = {name : stu_obj[i].name , total_marks : total};
+              }
+              console.log(student_data);
+            })
+            .catch( (error) => {
+                console.log("Something went wrong !!! "+error);
+            })
+    </script>
+</body>
+</html>

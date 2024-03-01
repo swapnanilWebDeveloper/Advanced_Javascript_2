@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         async function test(){
+            const res = await fetch("/myJson/json_data/employee_data.json");
+            const employee = await res.json();
+
+            return employee;
+         }
+        
+         test().then( (emp_data) => {
+             console.log(emp_data);
+             console.log(emp_data.length);
+             let net_sal;
+             for(var i = 0; i < emp_data.length; i++){
+                  console.log("name is = "+emp_data[i].name+", copany is = "+emp_data[i].company+", position = "+emp_data[i].position);
+                  console.log("Basic = "+emp_data[i].basic+", HRA = "+emp_data[i].HRA+", TA = "+emp_data[i].TA
+                              +",PF = "+emp_data[i].PF+", Income Tax = "+emp_data[i].IT);
+                  net_sal = emp_data[i].basic + emp_data[i].HRA + emp_data[i].TA - emp_data[i].PF - emp_data[i].IT;
+                  console.log(emp_data[i].name+" has a net salary of = "+net_sal);
+                  net_sal = 0;
+             }
+         }).catch((error) =>{
+            console.log(error);
+         })
+         
+    </script>
+</body>
+</html>

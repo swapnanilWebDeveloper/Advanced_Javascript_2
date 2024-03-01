@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+           let n = "name";
+           let em = "email";
+           let add = "address";
+           let a = "age";
+           let phy = "physics";
+           let chem = "chemistry";
+           let math = "mathematics";
+           let C_Sc = "calc_science";
+           let D_Sc = "details_science";
+
+           let engStudent = {
+              [n] : "Mayuk Mukherjee",
+              [em] : "Mayuk@gmail",
+              ["permanent_"+add] : "Barendranagar",
+              course : "BTech.CSE",
+              [a+"_student"] : 22,
+              [phy] : 99,
+              [chem] : 88,
+              [math] : 97,
+              
+              [C_Sc] : function(){
+                   let total;
+                   total = this.physics + this.chemistry + this.mathematics;
+                   return total;
+              },
+              [D_Sc+"_specificly"] : function(){
+                console.log("marks in physics = "+this.physics+" chemistry = "+this.chemistry+" mathematics = "+this.mathematics);
+              }
+           };
+
+           console.log(engStudent);
+           console.log(engStudent.calc_science());
+           console.log(engStudent.details_science_specificly());
+           console.log("name is = "+engStudent.name+", email is : "+engStudent.email+", address = "+engStudent.permanent_address);
+           console.log("age is = "+engStudent.age_student+", course is = "+engStudent.course);
+        /*   console.log(obj.creater_name);
+           console.log(obj.followers);
+           console.log(obj.platform_online);
+           console.log(obj.details());
+           console.log(obj['details']()); */
+
+     </script>
+</body>
+</html>

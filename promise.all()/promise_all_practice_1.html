@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+            const student1 = {name: "Mayuk Mukherjee", address: "Barendranagar", physics: 99, chemistry: 88, mathematics: 97}; 
+            const student2 = {name: "Suryendu Sarkar", address: "Thanapara", physics: 86, chemistry: 81, mathematics: 92}; 
+            const student3 = {name: "Aninda Mukherjee", address: "Rail-Gate", physics: 91, chemistry: 74, mathematics: 87}; 
+
+            
+            let s1 = new Promise((resolve,reject) => {
+                  setTimeout(() =>{
+                      console.log("first resolve method has been invoked...");
+                      resolve(student1);
+                  },1000);
+            });
+
+            let s2 = new Promise((resolve,reject) => {
+                  setTimeout(() =>{
+                      console.log("The second resolve method has been invoked...");
+                      resolve(student2);
+                  },2000);
+            })
+
+            let s3 = new Promise((resolve,reject) => {
+                  setTimeout(() =>{
+                      console.log("The third resolve method has been invoked...");
+                      resolve(student3);
+                  },3000);
+            });
+
+            Promise.all([s1,s2,s3]).then((stu_obj) => {
+                 console.log(stu_obj);
+                 console.log("length is = "+stu_obj.length);
+                 let mark_obj = new Array();
+                 let total = 0;
+                 for(var i = 0; i < stu_obj.length; i++){
+                      total = total + stu_obj[i].physics + stu_obj[i].chemistry + stu_obj[i].mathematics;
+                      mark_obj[i] = {name : stu_obj[i].name, science_total : total};
+                      total = 0;
+                 }
+                 console.log(mark_obj);
+                 for(var i = 0; i < mark_obj.length; i++){
+                    console.log(mark_obj[i].name+" , has got total in science = "+mark_obj[i].science_total);
+                 }
+            }).catch((error) => {
+                  console.log("Results : "+error);
+            })
+      </script>
+</body>
+</html>

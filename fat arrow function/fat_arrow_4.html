@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+           let is_palindrome = (num) => {
+                 let sum = 0, dig, N;
+                 N = num;
+                 while(N > 0){
+                    dig = parseInt( N % 10);
+                    sum = (sum + dig) * 10;
+                    N = parseInt( N / 10);
+                 }
+                 sum = sum / 10;
+                 console.log(`The reverse of ${num} is ${sum}`);
+                 if(sum == num){
+                    return `${num} is a palindrome number`;
+                 }
+                 else{
+                    return`${num} is not a palindrome number`;
+                 }
+           }
+
+           console.log(is_palindrome(12321));
+           console.log(is_palindrome(3456543));
+           console.log(is_palindrome(523989325));
+           console.log(is_palindrome(12345));
+           console.log(is_palindrome(74639));
+     </script>
+</body>
+</html>

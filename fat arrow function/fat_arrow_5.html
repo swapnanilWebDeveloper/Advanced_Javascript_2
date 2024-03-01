@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+           let fibonacci = (term) => {
+                let  x = 0 , y = 1, z, sum = 0;
+                for(var i = 0; i < term ; i++){
+                    z = x + y;
+                    sum = sum + z;
+                    console.log(`  ${z}`);
+                    x = y;
+                    y = z;
+                }
+                return sum;
+           }
+           console.log("the sumation of all the fibonacci terms is = "+fibonacci(10));
+     </script>
+</body>
+</html>

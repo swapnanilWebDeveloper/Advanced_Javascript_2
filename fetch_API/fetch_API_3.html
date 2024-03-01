@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+          fetch('https://data.covid19india.org/state_district_wise.json')
+          .then( (corona_data) => {
+              return corona_data.json();
+          })
+          .then( (data) => {
+            console.log(data);
+            let data_district = data.Haryana.districtData;
+            console.log(data_district);
+
+            let arr_district = new Array();
+
+            let i = 0;
+            for(let name_district in data_district){
+                console.log("district name is = "+name_district+", active case = "+data_district[name_district].active);
+                console.log("confirmed cases are = "+data_district[name_district].confirmed);
+                arr_district[i] = { district : name_district, active : data_district[name_district].active,
+                                 confirmed : data_district[name_district].confirmed};
+                                 i++;
+            }
+            console.log(arr_district);
+            let max_active, max_confirmed;
+            
+            max_active = max_confirmed = arr_district[0];
+
+            for(let i = 0; i < arr_district.length; i++){
+                   if(arr_district[i].active > max_active.active){
+                          max_active = arr_district[i];
+                   }
+                   if(arr_district[i].confirmed > max_confirmed.confirmed){
+                          max_confirmed = arr_district[i];
+                   }
+            }
+            console.log(max_active);
+            console.log(max_confirmed);
+
+            console.log(max_active.district+" , district has the most active cases of = "+max_active.active);
+            console.log(max_confirmed.district+" , district has the most confirmed cases of = "+max_confirmed.confirmed);
+          })
+          .catch((error) => {
+             console.log("Something went wrong "+error);
+          })
+     </script>
+</body>
+</html>

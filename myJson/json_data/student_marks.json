@@ -1,0 +1,34 @@
+[
+    {
+        "name" : "Mayuk Mukherjee",
+        "address" : "Barendranagar",
+        "email" : "Mayuk@gmail.com",
+        "physics" : 99,
+        "chemistry" : 88,
+        "mathematics" : 97
+    },
+    {
+        "name" : "Suryendu Sarkar",
+        "address" : "Thanapara",
+        "email" : "Suryendu@gmail.com",
+        "physics" : 85,
+        "chemistry" : 75,
+        "mathematics" : 92 
+    },
+    {
+        "name" : "Souvik Mondal",
+        "address" : "Rail gate",
+        "email" : "Souvik@gmail.com",
+        "physics" : 92,
+        "chemistry" : 84,
+        "mathematics" : 83
+    },
+    {
+        "name" : "Debjit Debnath",
+        "address" : "Banrjee Lane",
+        "email" : "Debjit@gmail.com",
+        "physics" : 87,
+        "chemistry" : 79,
+        "mathematics" : 92
+    }
+]

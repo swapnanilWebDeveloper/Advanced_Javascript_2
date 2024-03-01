@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+           class student{
+                constructor(nm,ag,em,add,phy,chem,math){
+                    this.name = nm;
+                    this.age = ag;
+                    this.email = em;
+                    this.address = add;
+                    this.physics = phy;
+                    this.chemistry = chem;
+                    this.mathematics = math;
+                    let total;
+
+                    console.log("constructor function");
+                }
+                presonal_info(){
+                    console.log("Name is = "+this.name+", age is = "+this.age+", email is = "+this.email+
+                    " address is = "+this.address);
+                }
+                science_marks(){
+                    console.log("marks in physics = "+this.physics+" chemistry = "+this.chemistry);
+                    console.log("mathematics = "+this.mathematics);
+                }
+                calc_science(){
+                    this.total = this.physics + this.chemistry + this.mathematics;
+                    console.log("Total marks is = "+this.total);
+                }
+                static static_method(){
+                    console.log("static function invoked");
+                }
+           }
+
+           let stu1 = new student("mayuk mukherjee",19,"mayuk@gamil.com", "barendranagar",95,88,92);
+            
+           stu1.presonal_info();
+           stu1.science_marks();
+           stu1.calc_science();
+
+           let stu2 = new student("suryendu sarkar",21,"suryendu@gamil.com", "Thanapara",87,74,86);
+            
+           stu2.presonal_info();
+           stu2.science_marks();
+           stu2.calc_science();
+      </script>
+</body>
+</html>

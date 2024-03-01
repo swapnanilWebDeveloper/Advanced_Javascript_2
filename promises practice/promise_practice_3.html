@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+        let products ;
+        fetch('https://dummyjson.com/products')
+                       .then((res) => {
+                         return res.json();
+                       })
+                       .then((data) => {
+                          products =  data;
+                       });
+        function prom(complete){
+            return new Promise(function(resolve,reject){
+                console.log("Fetching Data, Please wait...");
+                setTimeout( () => {
+                    if(complete){
+                        resolve(products);
+                     }else{
+                        reject("progam is rejected due to major issue");
+                     }
+                },2000);
+            })
+        }
+
+        prom(true).then((result) => {
+            console.log(result);
+            let product_arr = result.products;
+            let skin_obj = new Array();
+            let j = 0;
+            for(var i = 0; i < product_arr.length; i++ ){
+                if(product_arr[i].category === "skincare"){
+                     skin_obj[j] = {brand: product_arr[i].brand, price: product_arr[i].price,
+                                    stock: product_arr[i].stock, title: product_arr[i].title};
+                     j++; 
+                }
+            }
+            console.log(skin_obj);
+            return skin_obj;
+        }).then((data_skin) => {
+           let arr_skin = new Array();
+           let total_price;
+           for(var i = 0; i < data_skin.length; i++){
+              total_price = data_skin[i].price * data_skin[i].stock;
+              arr_skin[i] = {title: data_skin[i].title ,price : data_skin[i].price, stock : data_skin[i].stock,
+                                    total : total_price };
+           }
+           console.log(arr_skin);
+           return arr_skin;
+        }).then((arr_data) =>{
+            let sum = 0;
+            for(var i = 0; i < arr_data.length; i++){
+                console.log(arr_data[i].title+" is of total pricing = "+arr_data[i].total);
+                sum = sum + arr_data[i].total;
+            }
+            console.log("Total pricing of the skin care product = "+sum);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
+     </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+             async function getCovidapi(){ 
+               try{
+                const jsondata = await fetch('https://data.covid19india.org/state_district_wise.json');
+                const data = await jsondata.json();
+                console.log(data);
+                
+                let district = data["West Bengal"].districtData; 
+                console.log(district); 
+
+                let district_arr = new Array();
+                let i = 0;
+                for(let district_name in district){
+                    console.log("name = "+district_name+", number of active cases = "+district[district_name].active+ 
+                                               ", confirmed number of cases = "+district[district_name].confirmed );
+                }
+               }catch(error){
+                  console.log("Something went wrong : "+error);
+               }
+            }
+            getCovidapi()
+      </script>
+</body>
+</html>

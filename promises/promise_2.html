@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+        
+        function prom(complete){
+            return new Promise(function(resolve,reject){
+               if(complete){
+                   resolve("I am successful .");
+               }else{
+                   reject("I am failed .");
+               }
+            })
+        }
+
+        console.log(prom(true));
+        console.log(prom(false));
+     </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+           class cuboid{
+                constructor(len, btd, ht){
+                    this.length = len;
+                    this.breadth = btd;
+                    this.height = ht;
+                    let area;
+                    let volume;
+                   
+                }
+                calc_surface(){
+                    this.area = 2 * ((this.length * this.breadth) + (this.length * this.height) + (this.breadth * this.height));
+                    console.log("The surface area is = "+this.area);
+                }
+                measure_cuboid(){
+                    console.log("length = "+this.length+", breadth = "+this.breadth+", height = "+this.height);
+                }
+                calc_volume(){
+                    this.volume = this.length * this.breadth * this.height;
+                    console.log("volume of the cube is = "+this.volume);
+                }
+           }
+
+          let c1 = new cuboid(12,5,3);
+          c1.measure_cuboid();
+          c1.calc_surface();
+          c1.calc_volume();
+
+          let c2 = new cuboid(10,6,5);
+          c2.measure_cuboid();
+          c2.calc_surface();
+          c2.calc_volume();
+      </script>
+</body>
+</html>

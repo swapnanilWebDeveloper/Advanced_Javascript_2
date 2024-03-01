@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+          const student = {
+              name : "Swapnanil Roy",
+              email : "Swapnanil@gmail.com",
+              age : 21,
+              science : {
+                  physics : 99,
+                  chemistry : 88,
+                  mathematics : 97
+              }
+          }
+
+          for(let property in student){
+            if(property === "science"){
+                let total = 0;
+                for(let prop in student.science){
+                     console.log("marks in "+prop+" is = "+student.science[prop]);
+                     total = total + student.science[prop];
+                }
+                console.log("Total marks is = "+total);
+            }   
+            else{
+                console.log("property is : "+property+", value is = "+student[property]);
+            }
+            
+          }
+     </script>
+</body>
+</html>

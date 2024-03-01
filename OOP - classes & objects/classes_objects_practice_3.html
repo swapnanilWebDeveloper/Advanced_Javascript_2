@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+           class student{
+                constructor(){
+                    let name;
+                    let email;
+                    let address;
+                    let age;
+                    let physics;
+                    let chemistry;
+                    let mathematics;
+                    let total;
+                }
+                personal_details(nm , em, add, ag){
+                    this.name = nm;
+                    this.email = em;
+                    this.address = add;
+                    this.age = ag;
+                    console.log("name is = "+this.name+", email id = "+this.email+
+                                               ",age is = "+this.age+", address is = "+this.address);
+                }
+                calc_science(phy, chem, math){
+                    this.physics = phy;
+                    this.chemistry = chem;
+                    this.mathematics = math;
+                    
+                    this.total = this.physics + this.chemistry + this.mathematics;
+                    console.log("Total marks in science = "+this.total);
+                }
+                science_mark(){
+                    console.log("physics = "+this.physics+", chemistry = "+this.chemistry+", mathematics = "+this.mathematics);
+                }
+                static call_static(){
+                    console.log("I am inside static method....which can't be accessed by object");
+                }
+           }
+
+            let s1 = new student();
+            s1.personal_details("Mayuk Mukherjee","Mayuk@gamil.com","Barendranagar",19);
+            s1.calc_science(99,88,97);
+            s1.science_mark();
+            student.call_static();
+
+            let s2 = new student();
+            s2.personal_details("Suryendu Sarkar","Suryendu@gamil.com","Thanapara",22);
+            s2.calc_science(93,81,84);
+            s2.science_mark();
+      </script>
+</body>
+</html>

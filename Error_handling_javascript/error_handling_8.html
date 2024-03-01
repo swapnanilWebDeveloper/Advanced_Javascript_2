@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+          try{
+            let json_object = '{"name": "Mayuk","age" : "30"}'; 
+
+            let user = JSON.parse(json_object);
+
+            if(!user.name){
+                throw new Error("Incomplte data : No name...");
+            }
+
+            console.log(user.name);
+            console.log(user.age);
+          }catch(error){
+             console.log(error);
+          }finally{
+            console.log("Finally ... has been executed");
+          }
+      </script>
+</body>
+</html>

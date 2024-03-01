@@ -1,0 +1,38 @@
+[
+    {
+        "name" : "Mayuk Mukherjee",
+        "email" : "Mayuk@gmail.com",
+        "address" : "Barendranagar",
+        "company" : "TCS",
+        "position" : "CPP Developer",
+        "basic" : 75000,
+        "HRA" : 5500,
+        "TA" : 4500,
+        "PF" : 8500,
+        "IT" : 6500
+    },
+    {
+        "name" : "Suryendu Sarkar",
+        "email" : "Suryendu@gmail.com",
+        "address" : "Thanapara",
+        "company" : "Infosys",
+        "position" : "java Developer",
+        "basic" : 45000,
+        "HRA" : 2500,
+        "TA" : 3500,
+        "PF" : 6500,
+        "IT" : 4500
+    },
+    {
+        "name" : "Swapnanil Roy",
+        "email" : "Swapnanil@gmail.com",
+        "address" : "Chotobazar",
+        "company" : "accenture",
+        "position" : "CPP Developer",
+        "basic" : 65000,
+        "HRA" : 3200,
+        "TA" : 5700,
+        "PF" : 8300,
+        "IT" : 2500
+    }
+]
